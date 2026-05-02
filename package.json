@@ -14,8 +14,6 @@
   "dependencies": {
     "ethers": "^6.16.0",
     "express": "^5.2.1",
-    "mikronode": "^2.3.11",
-    "node-ssh": "^13.2.1",
     "routeros-client": "^1.1.1"
   }
 }
