@@ -116,11 +116,11 @@ cd web3-wifi-portal
 npm install
 
 2. Enter your details in the server file
-PORT=3000
-MIKROTIK_HOST=your_router_ip
-MIKROTIK_USER=your_login
-MIKROTIK_PASS=your_password
-CONTRACT_ADDRESS=your_contract_address
+- PORT=3000
+- MIKROTIK_HOST=your_router_ip
+- MIKROTIK_USER=your_login
+- MIKROTIK_PASS=your_password
+- CONTRACT_ADDRESS=your_contract_address
 
 3. Run project
 node index.js
