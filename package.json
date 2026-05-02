@@ -1,0 +1,21 @@
+{
+  "name": "wifi-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ethers": "^6.16.0",
+    "express": "^5.2.1",
+    "mikronode": "^2.3.11",
+    "node-ssh": "^13.2.1",
+    "routeros-client": "^1.1.1"
+  }
+}
