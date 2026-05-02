@@ -130,3 +130,15 @@ node index.js
 - npm
 - MetaMask extension
 - MikroTik router access (API enabled)
+
+Browsers block wallet access on non-secure (HTTP) connections.
+
+For local development, you can use tools like:
+- localtunnel (https://localtunnel.me)
+- ngrok
+
+Example:
+lt --port 3000
+
+This will generate a public HTTPS URL like:
+https://your-project.loca.lt
