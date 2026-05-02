@@ -1,6 +1,6 @@
 # Web3 Wi-Fi Portal
 
-## 🇬🇧 English
+## English
 
 ### Overview
 
@@ -55,7 +55,7 @@ It does not include:
 
 ---
 
-## 🇨🇿 Česky
+## Česky
 
 ### Přehled
 
@@ -108,7 +108,7 @@ Neobsahuje:
 - ochranu proti zneužití
 - rate limiting
 
-### Installation
+## Installation
 
 1. Installation
 git clone https://github.com/your-username/Project-web3-wifi-portal.git
