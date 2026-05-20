@@ -125,10 +125,10 @@ npm install
 3. Enter your details in the index file (views/index.html)
 - contractAddress=your_contract_address
 
-5. Run project
+4. Run project
 node server.js
 
-6. Requirements
+5. Requirements
 - Node.js >= 18
 - npm
 - MetaMask extension
