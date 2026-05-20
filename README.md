@@ -122,10 +122,13 @@ npm install
 - MIKROTIK_PASS=your_password
 - CONTRACT_ADDRESS=your_contract_address
 
-3. Run project
-node index.js
+3. Enter your details in the index file (views/index.html)
+- contractAddress=your_contract_address
 
-4. Requirements
+5. Run project
+node server.js
+
+6. Requirements
 - Node.js >= 18
 - npm
 - MetaMask extension
