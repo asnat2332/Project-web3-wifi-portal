@@ -2,8 +2,13 @@ const express = require("express");
 const { ethers } = require("ethers");
 const { RouterOSClient } = require("routeros-client");
 
+const path = require("path");
+
 const app = express();
-const PORT = 3000; //your port
+app.use(express.static(path.join(__dirname, "public")));
+
+const PORT = 3000;//your port
+
 
 app.set("trust proxy", true);
 
@@ -108,91 +113,9 @@ async function allowInternet(ip) {
 //UI
 
 app.get("/", (req, res) => {
-    res.send(`
-        <h1>📶 Web3 Wi-Fi Portal</h1>
-
-        <button onclick="connectWallet()">🔐 Connect Wallet</button>
-        <button onclick="deposit()">💰 Deposit 0.01 ETH</button>
-        <button onclick="startSession()">🚀 Start Session</button>
-        <button onclick="checkAccess()">🔍 Check Access</button>
-        <button onclick="endSession()">🛑 End Session</button>
-
-        <p id="wallet">Wallet: not connected</p>
-        <p id="status">Status: unknown</p>
-
-        <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.0/dist/ethers.umd.min.js"></script>
-
-        <script>
-            let signer;
-            let userAddress;
-            let contract;
-
-            const contractAddress = "${contractAddress}";
-
-            const abi = [
-                "function startSession()",
-                "function endSession()",
-                "function deposit() payable"
-            ];
-
-            async function connectWallet() {
-                if (!window.ethereum) {
-                    alert("MetaMask not found");
-                    return;
-                }
-
-                const accounts = await window.ethereum.request({
-                    method: "eth_requestAccounts"
-                });
-
-                const provider = new ethers.BrowserProvider(window.ethereum);
-                signer = await provider.getSigner();
-
-                userAddress = accounts[0];
-
-                contract = new ethers.Contract(contractAddress, abi, signer);
-
-                document.getElementById("wallet").innerText =
-                    "Wallet: " + userAddress;
-            }
-
-            async function deposit() {
-                const tx = await contract.deposit({
-                    value: ethers.parseEther("0.01")
-                });
-
-                await tx.wait();
-                alert("Deposit done ✅");
-            }
-
-            async function startSession() {
-                const tx = await contract.startSession();
-                await tx.wait();
-
-                alert("Session started ✅");
-            }
-
-            async function endSession() {
-                const tx = await contract.endSession();
-                await tx.wait();
-
-                alert("Session ended ✅");
-            }
-
-            async function checkAccess() {
-                if (!userAddress) {
-                    alert("Connect wallet first");
-                    return;
-                }
-
-                const res = await fetch("/check?address=" + userAddress);
-                const data = await res.json();
-
-                document.getElementById("status").innerText =
-                    data.access ? "✅ ACCESS" : "❌ NO ACCESS";
-            }
-        </script>
-    `);
+    res.sendFile(
+        path.join(__dirname, "views", "index.html")
+    );
 });
 
 //CHECK ACCESS
